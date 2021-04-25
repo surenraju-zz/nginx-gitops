@@ -1,0 +1,14 @@
+deployment:
+  name: nginx-deployment
+  image:
+    name: nginx
+    version: latest
+
+service:
+  name: nginx
+  type: ClusterIP
+  port: 80
+
+ingress:
+  name: nginx
+  path: /nginx

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name}}
+  labels:
+    app: nginx
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: {{ .Values.deployment.image.name }}
+          image: "{{ .Values.deployment.image.name }}:{{ .Values.deployment.image.version }}"
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
