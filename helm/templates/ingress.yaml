@@ -4,6 +4,7 @@ metadata:
    name: {{ .Values.ingress.name }}
    annotations:
      ingress.kubernetes.io/ssl-redirect: "false"
+     traefik.ingress.kubernetes.io/rewrite-target: /
 spec:
    rules:
    - http:
